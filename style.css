@@ -3,6 +3,12 @@ body {
   margin: 20px;
 }
 
+#errorMessage {
+  display: none;
+  color: red;
+  margin-top: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;
