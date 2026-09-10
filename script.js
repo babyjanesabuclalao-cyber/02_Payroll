@@ -4,7 +4,10 @@ function calculatePay() {
   const hours = parseFloat(document.getElementById("hoursWorked").value);
   const rate = parseFloat(document.getElementById("ratePerHour").value);
 
-  let pay = hours * rate; // Enhancement: add overtime rule (e.g., >40 hours = 1.5x rate)
+  const regularHours = Math.min(hours, 40);
+  const overtimeHours = Math.max(hours - 40, 0);
+
+  const pay = (regularHours * rate) + (overtimeHours * rate * 1.5);
 
   document.getElementById("result").innerText =
     name + "'s total pay is: $" + pay.toFixed(2);
